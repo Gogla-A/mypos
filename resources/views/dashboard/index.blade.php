@@ -7,7 +7,7 @@
         <section class="content-header">
 
             <h1>
-                <small>@lang('site.It all starts here')</small> <br>
+                <small>@lang('site.dashboard')</small> <br>
             </h1>
 
             <ol class="breadcrumb">

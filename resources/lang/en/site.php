@@ -1,11 +1,31 @@
 <?php
 
 return [
-  'dashboard' => 'Dashboard',
+    'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'This is dashboard' => 'This Is Dashboard',
     'It all starts here' => 'It All Starts Here.',
-
-        'Abdullah Baadawy' => 'Abdullah Badawy',
-
+    'Abdullah Baadawy' => 'Abdullah Badawy',
+    'users' => 'Users',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'email' => 'Email',
+    'action' => 'Actions',
+    'data_not_found' => 'Data Not Found',
+    'edit' => 'Edit',
+    'add' => 'Add',
+    'update' => 'Update',
+    'read' => 'Read',
+    'create' => 'Create',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'search' => 'Search',
+    'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
+    'added_successfully' => 'Data Added Successfully',
+    'updated_successfully' => 'Data Updated Successfully',
+    'deleted_successfully' => 'Data Deleted Successfully',
+    'permissions' => 'Permissions',
+    'categories' => 'Categories',
+        'products' => 'Products',
 ];
