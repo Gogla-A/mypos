@@ -36,7 +36,7 @@
 
     </style>
     {{--<!-- jQuery 3 -->--}}
-    <script src="{{ asset('dashboard/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery-3.7.1.js') }}"></script>
 
     {{--noty--}}
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/noty/noty.css') }}">
@@ -223,6 +223,7 @@
 {{--<!-- AdminLTE App -->--}}
 <script src="{{ asset('dashboard/js/adminlte.min.js') }}"></script>
 
+<script src="{{ asset('dashboard/js/custom/orders.js') }}"></script>
 
 <script>
     $(document).ready(function () {

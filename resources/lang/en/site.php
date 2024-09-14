@@ -54,5 +54,9 @@ return [
     'related_products' => 'Related Products',
     'add_order' => 'Add Order',
     'orders' => 'Orders',
+    'price' => 'Price',
+    'product' => 'Product',
+    'quantity' => 'Quantity',
+    'total' => 'Total',
 
 ];

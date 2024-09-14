@@ -16,7 +16,8 @@ class Product extends Model
         return number_format($profit_percent, 2);
 
     }//end of get profit attribute
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }

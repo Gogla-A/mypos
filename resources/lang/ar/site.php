@@ -51,4 +51,8 @@ return [
     'related_products' => 'المنتجات المرتبطة',
     'add_order' => 'أضف طلب',
     'orders' => 'الطلبات',
+    'price' => 'السعر',
+    'product' => 'المنتج',
+    'quantity' => 'الكمية',
+    'total' => 'الكمية',
 ];
