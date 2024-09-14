@@ -48,6 +48,7 @@
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.phone')</th>
                                 <th>@lang('site.address')</th>
+                                <th>@lang('site.orders')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -58,6 +59,7 @@
                                     <td style="vertical-align: middle">{{ $client->name }}</td>
                                     <td style="vertical-align: middle">{{ implode(' <> ',array_filter($client->phone)) }}</td>
                                     <td style="vertical-align: middle">{{ $client->address }}</td>
+                                    <td style="vertical-align: middle"><a href="{{ route('dashboard.clients.orders.create', $client->id) }}" class="btn btn-success btn-sm">@lang('site.add_order')</a></td>
                                     <td style="vertical-align: middle">
                                         {{--                                    @if (auth()->user()->hasPermission('update_clients'))--}}
                                         <a href="{{ route('dashboard.clients.edit', $client->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
@@ -80,7 +82,11 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $clients->appends(request()->query())->links() }}
+
+                        <div style="text-align: center">
+                            {{ $clients->links('pagination::bootstrap-4') }}
+                        </div>
+
                     @else
 
                         <h2>@lang('site.no_data_found')</h2>

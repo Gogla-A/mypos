@@ -31,7 +31,7 @@ class UsersController extends Controller
                 return $query->where('first_name', 'like', '%' . $request->search . '%')
                     ->orWhere('last_name', 'like', '%' . $request->search . '%');
 //            });
-        })->paginate(5);
+        })->latest()->paginate(4);
 
         return view('dashboard.users.index', compact('users'));
 

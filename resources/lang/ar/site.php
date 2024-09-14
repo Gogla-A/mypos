@@ -49,4 +49,6 @@ return [
     'address' => 'العنوان',
     'no_data_found' => 'لا يوجد بيانات',
     'related_products' => 'المنتجات المرتبطة',
+    'add_order' => 'أضف طلب',
+    'orders' => 'الطلبات',
 ];

@@ -49,59 +49,63 @@
                 </div>
                 <div class="box-body">
                     @if ($products->count() > 0)
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>@lang('site.name')</th>
-                            <th>@lang('site.description')</th>
-                            <th>@lang('site.category')</th>
-                            <th>@lang('site.image')</th>
-                            <th>@lang('site.purchase_price')</th>
-                            <th>@lang('site.sale_price')</th>
-                            <th>@lang('site.profit_percent') %</th>
-                            <th>@lang('site.stock')</th>
-                            <th>@lang('site.action')</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($products as $index => $product)
+                        <table class="table table-hover">
+                            <thead>
                             <tr>
-                                <td style="vertical-align: middle">{{ $index + 1 }}</td>
-                                <td style="vertical-align: middle">{{ $product->name }}</td>
-                                <td style="vertical-align: middle">{!! $product->description !!}</td>
-                                <td style="vertical-align: middle">{{ $product->category->name }}</td>
-                                <td style="vertical-align: middle"><img src="{{ asset('upload/product_image/product2.png') }}"
-                                                                        {{--                                             "{{ $product->image_path }}" --}}
-                                                                        style="width: 70px"  class="img-thumbnail" alt=""></td>
-                                <td style="vertical-align: middle">{{ $product->purchase_price }}</td>
-                                <td style="vertical-align: middle">{{ $product->sale_price }}</td>
-                                <td style="vertical-align: middle">{{ $product->profit_percent }} %</td>
-                                <td style="vertical-align: middle">{{ $product->stock }}</td>
-                                <td style="vertical-align: middle">
-                                    {{--                                    @if (auth()->user()->hasPermission('update_products'))--}}
-                                    <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-                                    {{--                                    @else--}}
-                                    {{--                                        <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>--}}
-                                    {{--                                    @endif--}}
-                                    {{--                                    @if (auth()->user()->hasPermission('delete_products'))--}}
-                                    <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="post" style="display: inline-block">
-                                        @csrf
-                                        {{ method_field('delete') }}
-                                        <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
-                                    </form><!-- end of form -->
-                                    {{--@else--}}
-                                    {{--<button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>--}}
-                                    {{--@endif--}}
-
-                                </td>
-
+                                <th>#</th>
+                                <th>@lang('site.name')</th>
+                                <th>@lang('site.description')</th>
+                                <th>@lang('site.category')</th>
+                                <th>@lang('site.image')</th>
+                                <th>@lang('site.purchase_price')</th>
+                                <th>@lang('site.sale_price')</th>
+                                <th>@lang('site.profit_percent') %</th>
+                                <th>@lang('site.stock')</th>
+                                <th>@lang('site.action')</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    {{ $products->appends(request()->query())->links() }}
+                            </thead>
+                            <tbody>
+                            @foreach ($products as $index => $product)
+                                <tr>
+                                    <td style="vertical-align: middle">{{ $index + 1 }}</td>
+                                    <td style="vertical-align: middle">{{ $product->name }}</td>
+                                    <td style="vertical-align: middle">{!! $product->description !!}</td>
+                                    <td style="vertical-align: middle">{{ $product->category->name }}</td>
+                                    <td style="vertical-align: middle"><img src="{{ asset('upload/product_image/product2.png') }}"
+                                                                            {{--                                             "{{ $product->image_path }}" --}}
+                                                                            style="width: 70px"  class="img-thumbnail" alt=""></td>
+                                    <td style="vertical-align: middle">{{ $product->purchase_price }}</td>
+                                    <td style="vertical-align: middle">{{ $product->sale_price }}</td>
+                                    <td style="vertical-align: middle">{{ $product->profit_percent }} %</td>
+                                    <td style="vertical-align: middle">{{ $product->stock }}</td>
+                                    <td style="vertical-align: middle">
+                                        {{--                                    @if (auth()->user()->hasPermission('update_products'))--}}
+                                        <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
+                                        {{--                                    @else--}}
+                                        {{--                                        <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>--}}
+                                        {{--                                    @endif--}}
+                                        {{--                                    @if (auth()->user()->hasPermission('delete_products'))--}}
+                                        <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="post" style="display: inline-block">
+                                            @csrf
+                                            {{ method_field('delete') }}
+                                            <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                        </form><!-- end of form -->
+                                        {{--@else--}}
+                                        {{--<button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>--}}
+                                        {{--@endif--}}
+
+                                    </td>
+
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                        <div style="text-align: center">
+                            {{ $products->links('pagination::bootstrap-4') }}
+                        </div>
                     @else
+
 
                         <h2>@lang('site.no_data_found')</h2>
 

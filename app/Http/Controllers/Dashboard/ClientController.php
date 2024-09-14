@@ -12,10 +12,10 @@ class ClientController extends Controller
         $clients = Client::when($request->search, function($q) use ($request) {
 
             return $q->where('name', 'like', '%' . $request->search . '%')
-            ->orWhere('phone', 'like', '%' . $request->search . '%')
-            ->orWhere('address', 'like', '%' . $request->search . '%');
+                ->orWhere('phone', 'like', '%' . $request->search . '%')
+                ->orWhere('address', 'like', '%' . $request->search . '%');
 
-        })->paginate(9);
+        })->latest()->paginate(8);
         return view('dashboard.clients.index', compact('clients'));
     }
 

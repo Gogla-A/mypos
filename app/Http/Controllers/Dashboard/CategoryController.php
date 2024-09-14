@@ -17,7 +17,7 @@ class CategoryController extends Controller
 
             return $q->where('name', 'like', '%' . $request->search . '%');
 
-        })->paginate(9);
+        })->latest()->paginate(8);
 
         return view('dashboard.categories.index', compact('categories'));
 

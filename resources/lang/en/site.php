@@ -52,5 +52,7 @@ return [
     'address' => 'Address',
     'no_data_found' => 'No Data Found',
     'related_products' => 'Related Products',
+    'add_order' => 'Add Order',
+    'orders' => 'Orders',
 
 ];
