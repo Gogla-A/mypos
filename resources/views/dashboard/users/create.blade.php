@@ -38,6 +38,10 @@
                             <input type="email" name="email" class="form-control" value="{{ old('email') }}">
                         </div>
                         <div class="form-group">
+                            <label>@lang('site.image')</label>
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label>@lang('site.password')</label>
                             <input type="password" name="password" class="form-control">
                         </div>
@@ -50,6 +54,7 @@
                             <div class="nav-tabs-custom">
                                 @php
                                     $models = ['users', 'categories', 'products'];
+                                    $maps = ['create', 'read', 'update', 'delete'];
 
                                 @endphp
                                 <ul class="nav nav-tabs">
@@ -59,16 +64,18 @@
                                 </ul>
                                 <div class="tab-content">
 
-                                            <label><input type="checkbox"  name="permissions[]" value="create_users">@lang('site.create')</label>
-                                            <label><input type="checkbox"  name="permissions[]" value="read_users">@lang('site.read')</label>
-                                            <label><input type="checkbox"  name="permissions[]" value="update_users">@lang('site.update')</label>
-                                            <label><input type="checkbox"  name="permissions[]" value="delete_users">@lang('site.delete')</label>
+                                    @foreach ($models as $index=>$model)
+                                        <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $model }}">
+                                            @foreach ($maps as $map)
+                                                <label><input type="checkbox" name="permissions[]" value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>
+                                            @endforeach
+                                        </div>
+                                    @endforeach
 
                                         </div>
-
                                 </div><!-- end of tab content -->
                             </div><!-- end of nav tabs -->
-                        </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</button>
                         </div>

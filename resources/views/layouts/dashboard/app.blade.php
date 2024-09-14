@@ -158,7 +158,9 @@
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('dashboard/img/avatar5.png') }}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">@lang('site.Abdullah Baadawy')</span>
+                            <span class="hidden-xs">
+                                {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                            </span>
                         </a>
                         <ul class="dropdown-menu">
 
@@ -167,6 +169,7 @@
                                 <img src="{{ asset('dashboard/img/avatar3.png') }}" class="img-circle" alt="User Image">
 
                                 <p>
+                                    {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
                                     <small>Member since 2 days</small>
                                 </p>
                             </li>
@@ -201,8 +204,8 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.0
         </div>
-        <strong>Copyright &copy; 2014-2016
-            <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        <strong>Copyright &copy; 2024-2025
+            <a href="https://adminlte.io">Abdullah Baadawy</a>.</strong> All rights
         reserved.
     </footer>
 
