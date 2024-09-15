@@ -3,7 +3,7 @@ $('document').ready(function() {
         e.preventDefault();
         let name = $(this).data('name');
         let id = $(this).data('id');
-        let price = $(this).data('price');
+        let price = $.number($(this).data('price'), 2);
 
         $(this).removeClass('btn-success').addClass('btn-default disabled');
 
@@ -41,7 +41,7 @@ $('document').ready(function() {
     $('body').on('keyup change', '.product-quantity', function() {
         let quantity = parseInt($(this).val()); //2
         let unitPrice = $(this).data('price'); //150
-        $(this).closest('tr').find('.product-price').html(quantity * unitPrice);
+        $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculateTotal();
     });//end of product quantity change
 
@@ -50,9 +50,15 @@ $('document').ready(function() {
 function calculateTotal() {
     let price = 0;
     $('.order-list .product-price').each(function(index){
-        price += parseInt($(this).html());
+        price += parseFloat($(this).html().replace(/,/g, ''));
     });
 
-    $('.total-price').html(price);
+    $('.total-price').html($.number(price, 2));
+
+    if (price > 0) {
+    $('#add-order-btn').removeClass('disabled');
+    }else{
+    $('#add-order-btn').addClass('disabled');
+    }
 
 }

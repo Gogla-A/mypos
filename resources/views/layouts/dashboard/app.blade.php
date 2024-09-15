@@ -37,6 +37,7 @@
     </style>
     {{--<!-- jQuery 3 -->--}}
     <script src="{{ asset('dashboard/js/jquery-3.7.1.js') }}"></script>
+    <script src="{{ asset('dashboard/js/jquery.number.js') }}"></script>
 
     {{--noty--}}
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/noty/noty.css') }}">
