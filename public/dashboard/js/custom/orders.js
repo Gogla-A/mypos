@@ -9,8 +9,9 @@ $('document').ready(function() {
 
         let html =
             `<tr>
+<!--                <input type="hidden" name="products[]" value="${id}">-->
                 <td style="vertical-align: middle">${name}</td>
-                <td style="vertical-align: middle"><input type="number" name="quanities[]" data-price="${price}" class="form-control input-sm product-quantity" min="1" value="1"></td>
+                <td style="vertical-align: middle"><input type="number" name="products[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min="1" value="1"></td>
                 <td class="product-price" style="vertical-align: middle">${price}</td>
                 <td style="vertical-align: middle"><button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><span class="fa fa-trash"></span></button></td>
             </tr>`;
@@ -40,7 +41,7 @@ $('document').ready(function() {
 
     $('body').on('keyup change', '.product-quantity', function() {
         let quantity = parseInt($(this).val()); //2
-        let unitPrice = $(this).data('price'); //150
+        let unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculateTotal();
     });//end of product quantity change

@@ -61,7 +61,7 @@
                                                             <tr>
                                                                 <td>{{ $product->name }}</td>
                                                                 <td>{{ $product->stock }}</td>
-                                                                <td>{{ $product->sale_price }}</td>
+                                                                <td>{{ number_format($product->sale_price, 2) }}</td>
                                                                 <td>
                                                                     <a href=""
                                                                        id="product-{{ $product->id }}"

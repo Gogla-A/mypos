@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
 //    use LaratrustUserTrait;
     use Notifiable;
-//    use HasRolesAndPermissions;
+    use HasRolesAndPermissions;
 
     /**
      * The attributes that should be cast to native types.
@@ -40,6 +40,32 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    // Define the attachRole method
+    public function attachRole($role, $userType = 'default_type')
+    {
+        if (is_string($role)) {
+            // Find the role by name if it's passed as a string
+            $role = Role::where('name', $role)->firstOrFail();
+        }
+
+        // Attach the role to the user
+        return $this->roles()->attach($role, ['user_type' => $userType]);
+    }
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles()->where('name', $role)->exists();
+        }
+
+        return $this->roles()->where('id', $role->id)->exists();
+    }
+
 
     public function getFirstNameAttribute($value)
     {

@@ -21,6 +21,8 @@ Route::group(
             Route::resource('clients', 'ClientController')->except('show');
             Route::resource('clients.orders', 'Client\OrderController')->except('show');
 
+            Route::resource('orders', 'OrdersController');
+
             Route::resource('users', 'UsersController')->except('show');
         });
     });

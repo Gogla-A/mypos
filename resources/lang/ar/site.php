@@ -55,4 +55,9 @@ return [
     'product' => 'المنتج',
     'quantity' => 'الكمية',
     'total' => 'الكمية',
+    'no_records' => 'لا يوجد بيانات',
+    'show_products' => 'عرض الطلبات',
+    'created_at' => 'تم إنشاؤها في',
+    'client_name' => 'إسم العميل',
+    'show' => 'عرض',
 ];

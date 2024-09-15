@@ -58,5 +58,10 @@ return [
     'product' => 'Product',
     'quantity' => 'Quantity',
     'total' => 'Total',
+    'no_records' => 'No Records',
+    'show_products' => 'Show Products',
+    'created_at' => 'Created At',
+    'client_name' => 'Client Name',
+    'show' => 'Show',
 
 ];

@@ -52,33 +52,33 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>@lang('site.name')</th>
-                                <th>@lang('site.description')</th>
-                                <th>@lang('site.category')</th>
-                                <th>@lang('site.image')</th>
-                                <th>@lang('site.purchase_price')</th>
-                                <th>@lang('site.sale_price')</th>
-                                <th>@lang('site.profit_percent') %</th>
-                                <th>@lang('site.stock')</th>
-                                <th>@lang('site.action')</th>
+                                <th style="text-align: center">#</th>
+                                <th style="text-align: center">@lang('site.name')</th>
+                                <th style="text-align: center">@lang('site.description')</th>
+                                <th style="text-align: center">@lang('site.category')</th>
+                                <th style="text-align: center">@lang('site.image')</th>
+                                <th style="text-align: center">@lang('site.purchase_price')</th>
+                                <th style="text-align: center">@lang('site.sale_price')</th>
+                                <th style="text-align: center">@lang('site.profit_percent') %</th>
+                                <th style="text-align: center">@lang('site.stock')</th>
+                                <th style="text-align: center">@lang('site.action')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($products as $index => $product)
                                 <tr>
-                                    <td style="vertical-align: middle">{{ $index + 1 }}</td>
-                                    <td style="vertical-align: middle">{{ $product->name }}</td>
-                                    <td style="vertical-align: middle">{!! $product->description !!}</td>
-                                    <td style="vertical-align: middle">{{ $product->category->name }}</td>
-                                    <td style="vertical-align: middle"><img src="{{ asset('upload/product_image/product2.png') }}"
+                                    <td style="vertical-align: middle;text-align: center">{{ $index + 1 }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->name }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{!! $product->description !!}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->category->name }}</td>
+                                    <td style="vertical-align: middle;text-align: center"><img src="{{ asset('upload/product_image/product2.png') }}"
                                                                             {{--                                             "{{ $product->image_path }}" --}}
                                                                             style="width: 70px"  class="img-thumbnail" alt=""></td>
-                                    <td style="vertical-align: middle">{{ $product->purchase_price }}</td>
-                                    <td style="vertical-align: middle">{{ $product->sale_price }}</td>
-                                    <td style="vertical-align: middle">{{ $product->profit_percent }} %</td>
-                                    <td style="vertical-align: middle">{{ $product->stock }}</td>
-                                    <td style="vertical-align: middle">
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->purchase_price }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->sale_price }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->profit_percent }} %</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $product->stock }}</td>
+                                    <td style="vertical-align: middle;text-align: center">
                                         {{--                                    @if (auth()->user()->hasPermission('update_products'))--}}
                                         <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                         {{--                                    @else--}}

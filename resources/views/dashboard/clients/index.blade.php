@@ -44,23 +44,23 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>@lang('site.name')</th>
-                                <th>@lang('site.phone')</th>
-                                <th>@lang('site.address')</th>
-                                <th>@lang('site.orders')</th>
-                                <th>@lang('site.action')</th>
+                                <th style="text-align: center">#</th>
+                                <th style="text-align: center">@lang('site.name')</th>
+                                <th style="text-align: center">@lang('site.phone')</th>
+                                <th style="text-align: center">@lang('site.address')</th>
+                                <th style="text-align: center">@lang('site.orders')</th>
+                                <th style="text-align: center">@lang('site.action')</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($clients as $index => $client)
                                 <tr>
-                                    <td style="vertical-align: middle">{{ $index + 1 }}</td>
-                                    <td style="vertical-align: middle">{{ $client->name }}</td>
-                                    <td style="vertical-align: middle">{{ implode(' <> ',array_filter($client->phone)) }}</td>
-                                    <td style="vertical-align: middle">{{ $client->address }}</td>
-                                    <td style="vertical-align: middle"><a href="{{ route('dashboard.clients.orders.create', $client->id) }}" class="btn btn-success btn-sm">@lang('site.add_order')</a></td>
-                                    <td style="vertical-align: middle">
+                                    <td style="vertical-align: middle;text-align: center">{{ $index + 1 }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $client->name }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ implode(' <> ',array_filter($client->phone)) }}</td>
+                                    <td style="vertical-align: middle;text-align: center">{{ $client->address }}</td>
+                                    <td style="vertical-align: middle;text-align: center"><a href="{{ route('dashboard.clients.orders.create', $client->id) }}" class="btn btn-success btn-sm">@lang('site.add_order')</a></td>
+                                    <td style="vertical-align: middle;text-align: center">
                                         {{--                                    @if (auth()->user()->hasPermission('update_clients'))--}}
                                         <a href="{{ route('dashboard.clients.edit', $client->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                         {{--                                    @else--}}
