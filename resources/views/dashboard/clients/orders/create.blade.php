@@ -6,13 +6,15 @@
 
         <section class="content-header">
 
-            <h2>@lang('site.add_order')</h2>
-            <p>Client Name: {{ $client->name }}<p>
+            <h1 class="box-title">
+                {{__('site.add_order')}}
+                <small>{{__('site.client_name')}} : {{ $client->name }}</small>
+            </h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.clients.index') }}">@lang('site.clients')</a></li>
-                <li class="active">@lang('site.add_order')</li>
+                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{__('site.dashboard')}}</a></li>
+                <li><a href="{{ route('dashboard.clients.index') }}">{{__('site.clients')}}</a></li>
+                <li class="active">{{__('site.add_order')}}</li>
             </ol>
         </section>
 

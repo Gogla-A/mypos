@@ -20,9 +20,7 @@ class ProductController extends Controller
         $products = Product::when($request->search, function ($q) use ($request) {
 
             return $q->whereTranslationLike('name', '%' . $request->search . '%');
-
         })->when($request->category_id, function ($q) use ($request) {
-
             return $q->where('category_id', $request->category_id);
 
         })->latest()->paginate(4);

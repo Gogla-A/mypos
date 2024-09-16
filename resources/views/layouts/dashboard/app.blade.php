@@ -78,12 +78,18 @@
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/noty/noty.css') }}">
     <script src="{{ asset('dashboard/plugins/noty/noty.min.js') }}"></script>
 
+{{--    morris--}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+{{--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>--}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
     {{--<!-- iCheck -->--}}
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/icheck/all.css') }}">
 
     {{--html in  ie--}}
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+{{--    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>--}}
+{{--    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>--}}
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -177,11 +183,11 @@
                                 <ul class="menu">
 
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                    <li>
-                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    {{ $properties['native'] }}
-                                    </a>
-                                    </li>
+                                        <li>
+                                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                {{ $properties['native'] }}
+                                            </a>
+                                        </li>
                                     @endforeach
 
                                 </ul>
@@ -193,7 +199,7 @@
                     <li class="dropdown user user-menu">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('dashboard/img/avatar5.png') }}" class="user-image" alt="User Image">
+                            <img src="{{ asset('dashboard/img/img.png') }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">
                                 {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
                             </span>
@@ -265,6 +271,11 @@
 {{--printThis--}}
 <script src="{{ asset('dashboard/js/printThis.js') }}"></script>
 
+{{--morris--}}
+{{--<script src="{{ asset('dashboard/plugins/morris/morris.css')}}"></script>--}}
+{{--<script src="{{ asset('dashboard/plugins/morris/morris.min.js')}}"></script>--}}
+{{--<script src="{{ asset('dashboard/plugins/morris/raphael.min.js')}}"></script>--}}
+
 <script>
     $(document).ready(function () {
         $('.sidebar-menu').tree();
@@ -302,7 +313,7 @@
 
     })
 
-
 </script>
+@stack('scripts')
 </body>
 </html>

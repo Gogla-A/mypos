@@ -4,7 +4,7 @@
 
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset('dashboard/img/avatar04.png') }}" class="img-circle" alt="User Image">
+                <img src="{{ asset('dashboard/img/img.png') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>

@@ -54,7 +54,7 @@ return [
     'price' => 'السعر',
     'product' => 'المنتج',
     'quantity' => 'الكمية',
-    'total' => 'الكمية',
+    'total' => 'المجموع',
     'no_records' => 'لا يوجد بيانات',
     'show_products' => 'عرض الطلبات',
     'created_at' => 'تم إنشاؤها في',
@@ -66,4 +66,5 @@ return [
     'edit_order' => 'تعديل الطلب',
     'previous_orders' => 'الطلب السابق',
     'close' => 'إغلاق',
+    'sales_chart'   => 'مخطط المبيعات',
 ];

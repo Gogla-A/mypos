@@ -66,4 +66,5 @@ return [
     'edit_order' => 'Edit Order',
     'previous_orders' => 'Previous Orders',
     'close' => 'Close Order',
+    'sales_chart'   => 'Sales Chart',
 ];
