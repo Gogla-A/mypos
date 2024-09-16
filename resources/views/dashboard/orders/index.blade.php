@@ -79,7 +79,7 @@
                                             <td style="vertical-align: middle;text-align: center;">{{ $order->created_at->toFormattedDateString() }}</td>
                                             <td style="vertical-align: middle;text-align: center;">
                                                 <button class="btn btn-primary btn-sm order-products"
-{{--                                                        data-url="{{ route('dashboard.orders.products', $order->id) }}"--}}
+                                                        data-url="{{ route('dashboard.orders.products', $order->id) }}"
                                                         data-method="get"
                                                 >
                                                     <i class="fa fa-list"></i>
@@ -138,8 +138,8 @@
                         <div class="box-body">
 
                             <div style="display: none; flex-direction: column; align-items: center;" id="loading">
-                                <div class="loader"></div>
-                                <p style="margin-top: 10px">@lang('site.loading')</p>
+                                <div class="loader" style="margin-top: 10px;margin-bottom: 50px"></div>
+{{--                                <p style="margin-top: 10px">@lang('site.loading')</p>--}}
                             </div>
 
                             <div id="order-product-list">

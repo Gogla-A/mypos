@@ -1,4 +1,5 @@
 $('document').ready(function() {
+    //Add Product Button
     $('.add-product-btn').on('click', function(e){
         e.preventDefault();
         let name = $(this).data('name');
@@ -20,34 +21,60 @@ $('document').ready(function() {
         calculateTotal();
     });
 
+    //Disabled Button
     $('body').on('click', '.disabled', function(e) {
         e.preventDefault();
-    });//end of disabled
+    });//End Of Disabled
 
+    //Remove Product Button
     $('body').on('click', '.remove-product-btn', function(e) {
         e.preventDefault();
         let id = $(this).data('id');
         $(this).closest('tr').remove();
         $('#product-' + id).removeClass('btn-default disabled').addClass('btn-success');
         calculateTotal();
-    });
+    }); //End Of Remove Product Button
 
-    let quantity = parseInt($(this).val()); //2
-    let unitPrice = $(this).data('price'); //150
-    $(this).closest('tr').find('.product-price').html(quantity * unitPrice);
-    $('body').on('change', '.product_quantity', function(){
-        calculateTotal();
-    });
-
+    //Change Product Quantity
     $('body').on('keyup change', '.product-quantity', function() {
         let quantity = parseInt($(this).val()); //2
         let unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculateTotal();
-    });//end of product quantity change
+    }); //End Of Change Product Quantity
 
-});
+    //List All Order Products
+    $('.order-products').on('click', function(e) {
+        e.preventDefault();
+        $('#loading').css('display', 'flex');
 
+        let url = $(this).data('url');
+        let method = $(this).data('method');
+
+        $.ajax({
+            url: url,
+            method: method,
+            success: function(data){
+                $('#loading').css('display', 'none');
+                $('#order-product-list').show().empty().append(data);
+
+            }
+        })
+    }); //End Of List All Order Products
+
+}); //End Of Document Ready
+
+//Print Order
+$(document).on('click', '.print-btn', function() {
+    $('#print-area').printThis();
+})
+
+// //Close Order
+$(document).on('click', '.close-btn', function() {
+    $('#order-product-list').hide();
+}) //End Close Order List
+
+//Total Calculations
 function calculateTotal() {
     let price = 0;
     $('.order-list .product-price').each(function(index){
@@ -57,9 +84,9 @@ function calculateTotal() {
     $('.total-price').html($.number(price, 2));
 
     if (price > 0) {
-    $('#add-order-btn').removeClass('disabled');
+        $('#add-order-btn').removeClass('disabled');
     }else{
-    $('#add-order-btn').addClass('disabled');
+        $('#add-order-btn').addClass('disabled');
     }
 
-}
+} //End Of Total Calculations

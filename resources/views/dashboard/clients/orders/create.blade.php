@@ -6,7 +6,8 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.add_order')</h1>
+            <h2>@lang('site.add_order')</h2>
+            <p>Client Name: {{ $client->name }}<p>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
@@ -142,63 +143,65 @@
 
                     </div><!-- end of box -->
 
-                    {{--@if ($client->orders->count() > 0)--}}
+                    @if ($client->orders->count() > 0)
 
-                    {{--<div class="box box-primary">--}}
+                        <div class="box box-primary">
 
-                    {{--<div class="box-header">--}}
+                            <div class="box-header">
 
-                    {{--<h3 class="box-title" style="margin-bottom: 10px">@lang('site.previous_orders')--}}
-                    {{--<small>{{ $orders->total() }}</small>--}}
-                    {{--</h3>--}}
+                                <h3 class="box-title" style="margin-bottom: 10px">@lang('site.previous_orders')
+                                    <small>{{ $orders->total() }}</small>
+                                </h3>
 
-                    {{--</div><!-- end of box header -->--}}
+                            </div><!-- end of box header -->
 
-                    {{--<div class="box-body">--}}
+                            <div class="box-body">
 
-                    {{--@foreach ($orders as $order)--}}
+                                @foreach ($orders as $order)
 
-                    {{--<div class="panel-group">--}}
+                                    <div class="panel-group">
 
-                    {{--<div class="panel panel-success">--}}
+                                        <div class="panel panel-success">
 
-                    {{--<div class="panel-heading">--}}
-                    {{--<h4 class="panel-title">--}}
-                    {{--<a data-toggle="collapse" href="#{{ $order->created_at->format('d-m-Y-s') }}">{{ $order->created_at->toFormattedDateString() }}</a>--}}
-                    {{--</h4>--}}
-                    {{--</div>--}}
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" href="#{{ $order->created_at->format('d-m-Y-s') }}">{{ $order->created_at->toFormattedDateString() }}</a>
+                                                </h4>
+                                            </div>
 
-                    {{--<div id="{{ $order->created_at->format('d-m-Y-s') }}" class="panel-collapse collapse">--}}
+                                            <div id="{{ $order->created_at->format('d-m-Y-s') }}" class="panel-collapse collapse">
 
-                    {{--<div class="panel-body">--}}
+                                                <div class="panel-body">
 
-                    {{--<ul class="list-group">--}}
-                    {{--@foreach ($order->products as $product)--}}
-                    {{--<li class="list-group-item">{{ $product->name }}</li>--}}
-                    {{--@endforeach--}}
-                    {{--</ul>--}}
+                                                    <ul class="list-group">
+                                                        @foreach ($order->products as $product)
+                                                            <li class="list-group-item">{{ $product->name }}</li>
+                                                        @endforeach
+                                                    </ul>
 
-                    {{--</div><!-- end of panel body -->--}}
+                                                </div><!-- end of panel body -->
 
-                    {{--</div><!-- end of panel collapse -->--}}
+                                            </div><!-- end of panel collapse -->
 
-                    {{--</div><!-- end of panel primary -->--}}
+                                        </div><!-- end of panel primary -->
 
-                    {{--</div><!-- end of panel group -->--}}
+                                    </div><!-- end of panel group -->
 
-                    {{--@endforeach--}}
+                                @endforeach
 
-                    {{--{{ $orders->links() }}--}}
+                                <div style="text-align: center">
+                                    {{ $orders->links('pagination::bootstrap-4') }}
+                                </div>
+                            </div><!-- end of box body -->
 
-                    {{--</div><!-- end of box body -->--}}
+                        </div><!-- end of box -->
 
-                    {{--</div><!-- end of box -->--}}
+                    @endif
 
-                    {{--@endif--}}
 
-                    {{--</div><!-- end of col -->--}}
+                </div><!-- end of col -->
 
-                </div><!-- end of row -->
+            </div><!-- end of row -->
 
         </section><!-- end of content -->
 

@@ -33,6 +33,41 @@
         .mr-2{
             margin-right: 5px;
         }
+        /* HTML: <div class="loader"></div> */
+        .loader {
+            width: 40px;
+            aspect-ratio: 1;
+            position: relative;
+        }
+        .loader:before,
+        .loader:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: -8px 0 0 -8px;
+            width: 16px;
+            aspect-ratio: 1;
+            background: #3FB8AF;
+            animation:
+                l2-1 2s  infinite,
+                l2-2 1s infinite ;
+        }
+        .loader:after {
+            background:#FF3D7F;
+            animation-delay: -1s,0s;
+        }
+        @keyframes l2-1 {
+            0%   {top:0   ;left:0}
+            25%  {top:100%;left:0}
+            50%  {top:100%;left:100%}
+            75%  {top:0   ;left:100%}
+            100% {top:0   ;left:0}
+        }
+        @keyframes l2-2 {
+            40%,50% {transform: rotate(0.25turn) scale(0.5)}
+            100%    {transform: rotate(0.5turn) scale(1)}
+        }
 
     </style>
     {{--<!-- jQuery 3 -->--}}
@@ -224,7 +259,11 @@
 {{--<!-- AdminLTE App -->--}}
 <script src="{{ asset('dashboard/js/adminlte.min.js') }}"></script>
 
+{{--custom--}}
 <script src="{{ asset('dashboard/js/custom/orders.js') }}"></script>
+
+{{--printThis--}}
+<script src="{{ asset('dashboard/js/printThis.js') }}"></script>
 
 <script>
     $(document).ready(function () {

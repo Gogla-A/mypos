@@ -3,7 +3,8 @@
 
         <thead>
         <tr>
-            <th>@lang('site.name')</th>
+{{--            <th>@lang('site.client_name')</th>--}}
+            <th>@lang('site.product_name')</th>
             <th>@lang('site.quantity')</th>
             <th>@lang('site.price')</th>
         </tr>
@@ -12,6 +13,7 @@
         <tbody>
         @foreach ($products as $product)
             <tr>
+{{--                <td>{{ $client->name }}</td>--}}
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->pivot->quantity }}</td>
                 <td>{{ number_format($product->pivot->quantity * $product->sale_price, 2) }}</td>
@@ -24,3 +26,4 @@
 </div>
 
 <button class="btn btn-block btn-primary print-btn"><i class="fa fa-print"></i> @lang('site.print')</button>
+<button class="close-btn btn btn-block btn-danger close-btn"><i class="fa fa-close"></i> @lang('site.close')</button>

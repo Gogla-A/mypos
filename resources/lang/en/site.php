@@ -4,12 +4,10 @@ return [
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'This is dashboard' => 'This Is Dashboard',
-
     'users' => 'Users',
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'email' => 'Email',
-
     'image' => 'Image',
     'action' => 'Actions',
     'data_not_found' => 'Data Not Found',
@@ -30,7 +28,6 @@ return [
     'updated_successfully' => 'Data Updated Successfully',
     'deleted_successfully' => 'Data Deleted Successfully',
     'permissions' => 'Permissions',
-
     'category' => 'Category',
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
@@ -63,5 +60,10 @@ return [
     'created_at' => 'Created At',
     'client_name' => 'Client Name',
     'show' => 'Show',
-
+    'loading' => 'Loading...',
+    'print' => 'Print The Receipt',
+    'product_name' => 'Product Name',
+    'edit_order' => 'Edit Order',
+    'previous_orders' => 'Previous Orders',
+    'close' => 'Close Order',
 ];
